@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectGuid>{31A544BA-42E4-465B-B459-3B8EC3A574C2}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Bitaqati</RootNamespace>
+    <AssemblyName>newTry1</AssemblyName>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>true</MtouchFastDev>
+    <IOSDebuggerPort>64747</IOSDebuggerPort>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>true</MtouchFastDev>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <IOSDebuggerPort>16318</IOSDebuggerPort>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="Xamarin.iOS.DGActivityIndicatorViewBinding">
+      <HintPath>..\packages\Xamarin.iOS.DGActivityIndicatorView.1.0.0\lib\Xamarin.iOS10\Xamarin.iOS.DGActivityIndicatorViewBinding.dll</HintPath>
+    </Reference>
+    <Reference Include="Lottie.iOS">
+      <HintPath>..\packages\Com.Airbnb.iOS.Lottie.2.5.0\lib\xamarinios\Lottie.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading">
+      <HintPath>..\packages\Xamarin.FFImageLoading.2.3.4\lib\Xamarin.iOS10\FFImageLoading.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Platform">
+      <HintPath>..\packages\Xamarin.FFImageLoading.2.3.4\lib\Xamarin.iOS10\FFImageLoading.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="WebP.Touch">
+      <HintPath>..\packages\WebP.Touch.1.0.8\lib\Xamarin.iOS10\WebP.Touch.dll</HintPath>
+    </Reference>
+    <Reference Include="Bitaqati">
+      <HintPath>..\Bitaqati.PCL\bin\Debug\Bitaqati.dll</HintPath>
+    </Reference>
+    <Reference Include="FloatLabeledEntry.iOS">
+      <HintPath>..\packages\FloatLabeledEntry.iOS.1.1.1\lib\Xamarin.iOS10\FloatLabeledEntry.iOS.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\absence_arrow.imageset\absence_arrow.png" />
+    <ImageAsset Include="Assets.xcassets\absence_arrow.imageset\absence_arrow%402x.png" />
+    <ImageAsset Include="Assets.xcassets\absence_arrow.imageset\absence_arrow%403x.png" />
+    <ImageAsset Include="Assets.xcassets\absence_arrow.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Abstract-Background.imageset\Abstract-Background.png" />
+    <ImageAsset Include="Assets.xcassets\Abstract-Background.imageset\Abstract-Background%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Abstract-Background.imageset\Abstract-Background%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Abstract-Background.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Abstract-Background-1.imageset\Abstract-Background.pdf" />
+    <ImageAsset Include="Assets.xcassets\Abstract-Background-1.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\accruals.imageset\accruals.png" />
+    <ImageAsset Include="Assets.xcassets\accruals.imageset\accruals%402x.png" />
+    <ImageAsset Include="Assets.xcassets\accruals.imageset\accruals%403x.png" />
+    <ImageAsset Include="Assets.xcassets\accruals.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\accept_action.imageset\accept_action.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\accept_action.imageset\accept_action%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\accept_action.imageset\accept_action%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\accept_action.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\correction_action.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\correction_action.imageset\correction_action.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\correction_action.imageset\correction_action%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\correction_action.imageset\correction_action%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\delete_action.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\delete_action.imageset\delete_action.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\delete_action.imageset\delete_action%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\delete_action.imageset\delete_action%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\for_your_action.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\for_your_action.imageset\for_your_action.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\for_your_action.imageset\for_your_action%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\for_your_action.imageset\for_your_action%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\more_info_action.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\more_info_action.imageset\more_info_action.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\more_info_action.imageset\more_info_action%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\more_info_action.imageset\more_info_action%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\ok_action.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\ok_action.imageset\ok_action.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\ok_action.imageset\ok_action%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\ok_action.imageset\ok_action%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\provide_info_action.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\provide_info_action.imageset\provide_info_action.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\provide_info_action.imageset\provide_info_action%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\provide_info_action.imageset\provide_info_action%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\reassign_action.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\reassign_action.imageset\reassign_action.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\reassign_action.imageset\reassign_action%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\reassign_action.imageset\reassign_action%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\reject_action.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\reject_action.imageset\reject_action.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\reject_action.imageset\reject_action%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\reject_action.imageset\reject_action%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\update_action.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\update_action.imageset\update_action.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\update_action.imageset\update_action%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\update_action.imageset\update_action%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Action Icons\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\action.imageset\action.png" />
+    <ImageAsset Include="Assets.xcassets\action.imageset\action%402x.png" />
+    <ImageAsset Include="Assets.xcassets\action.imageset\action%403x.png" />
+    <ImageAsset Include="Assets.xcassets\action.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\action_rotated.imageset\action_rotated.png" />
+    <ImageAsset Include="Assets.xcassets\action_rotated.imageset\action_rotated%402x.png" />
+    <ImageAsset Include="Assets.xcassets\action_rotated.imageset\action_rotated%403x.png" />
+    <ImageAsset Include="Assets.xcassets\action_rotated.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\add.imageset\add.png" />
+    <ImageAsset Include="Assets.xcassets\add.imageset\add%402x.png" />
+    <ImageAsset Include="Assets.xcassets\add.imageset\add%403x.png" />
+    <ImageAsset Include="Assets.xcassets\add.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\Icon%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\Icon%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\Icon-76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\Icon-76%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\Icon-83.5%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\IconSmall.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\IconSmall%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\IconSmall%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\IconSmall-20.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\IconSmall-20%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\IconSmall-20%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\IconSmall-20-iPad%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\IconSmall-40.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\IconSmall-40%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\IconSmall-40%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\IconSmall-40-iPad%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\IconSmall-iPad%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Arrows\back_arrow%28ar%29.imageset\back_arrow%28ar%29.png" />
+    <ImageAsset Include="Assets.xcassets\Arrows\back_arrow%28ar%29.imageset\back_arrow%28ar%29%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Arrows\back_arrow%28ar%29.imageset\back_arrow%28ar%29%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Arrows\back_arrow%28ar%29.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Arrows\back_arrow.imageset\back_arrow.png" />
+    <ImageAsset Include="Assets.xcassets\Arrows\back_arrow.imageset\back_arrow%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Arrows\back_arrow.imageset\back_arrow%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Arrows\back_arrow.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Arrows\down.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Arrows\down.imageset\down.png" />
+    <ImageAsset Include="Assets.xcassets\Arrows\down.imageset\down%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Arrows\down.imageset\down%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Arrows\navigate_back.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Arrows\navigate_back.imageset\navigate_back.png" />
+    <ImageAsset Include="Assets.xcassets\Arrows\navigate_back.imageset\navigate_back%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Arrows\navigate_back.imageset\navigate_back%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Arrows\navigate_next.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Arrows\navigate_next.imageset\navigate_next.png" />
+    <ImageAsset Include="Assets.xcassets\Arrows\navigate_next.imageset\navigate_next%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Arrows\navigate_next.imageset\navigate_next%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Arrows\toggle_down.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Arrows\toggle_down.imageset\toggle_down.png" />
+    <ImageAsset Include="Assets.xcassets\Arrows\toggle_down.imageset\toggle_down%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Arrows\toggle_down.imageset\toggle_down%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Arrows\toggle_up.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Arrows\toggle_up.imageset\toggle_up.png" />
+    <ImageAsset Include="Assets.xcassets\Arrows\toggle_up.imageset\toggle_up%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Arrows\toggle_up.imageset\toggle_up%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Arrows\up.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Arrows\up.imageset\up.png" />
+    <ImageAsset Include="Assets.xcassets\Arrows\up.imageset\up%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Arrows\up.imageset\up%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Arrows\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\attachment.imageset\attachment.png" />
+    <ImageAsset Include="Assets.xcassets\attachment.imageset\attachment%402x.png" />
+    <ImageAsset Include="Assets.xcassets\attachment.imageset\attachment%403x.png" />
+    <ImageAsset Include="Assets.xcassets\attachment.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\avatar.imageset\avatar.png" />
+    <ImageAsset Include="Assets.xcassets\avatar.imageset\avatar%402x.png" />
+    <ImageAsset Include="Assets.xcassets\avatar.imageset\avatar%403x.png" />
+    <ImageAsset Include="Assets.xcassets\avatar.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\browsefiles.imageset\browsefiles.png" />
+    <ImageAsset Include="Assets.xcassets\browsefiles.imageset\browsefiles%402x.png" />
+    <ImageAsset Include="Assets.xcassets\browsefiles.imageset\browsefiles%403x.png" />
+    <ImageAsset Include="Assets.xcassets\browsefiles.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\calendar.imageset\calendar.png" />
+    <ImageAsset Include="Assets.xcassets\calendar.imageset\calendar%402x.png" />
+    <ImageAsset Include="Assets.xcassets\calendar.imageset\calendar%403x.png" />
+    <ImageAsset Include="Assets.xcassets\calendar.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\cancel.imageset\cancel.png" />
+    <ImageAsset Include="Assets.xcassets\cancel.imageset\cancel%402x.png" />
+    <ImageAsset Include="Assets.xcassets\cancel.imageset\cancel%403x.png" />
+    <ImageAsset Include="Assets.xcassets\cancel.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\clock.imageset\clock.png" />
+    <ImageAsset Include="Assets.xcassets\clock.imageset\clock%402x.png" />
+    <ImageAsset Include="Assets.xcassets\clock.imageset\clock%403x.png" />
+    <ImageAsset Include="Assets.xcassets\clock.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Cloud\cloud.imageset\cloud.png" />
+    <ImageAsset Include="Assets.xcassets\Cloud\cloud.imageset\cloud%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Cloud\cloud.imageset\cloud%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Cloud\cloud.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Cloud\cloud_done.imageset\cloud_done.png" />
+    <ImageAsset Include="Assets.xcassets\Cloud\cloud_done.imageset\cloud_done%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Cloud\cloud_done.imageset\cloud_done%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Cloud\cloud_done.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Cloud\cloud_download.imageset\cloud_download.png" />
+    <ImageAsset Include="Assets.xcassets\Cloud\cloud_download.imageset\cloud_download%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Cloud\cloud_download.imageset\cloud_download%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Cloud\cloud_download.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Cloud\cloud_off.imageset\cloud_off.png" />
+    <ImageAsset Include="Assets.xcassets\Cloud\cloud_off.imageset\cloud_off%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Cloud\cloud_off.imageset\cloud_off%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Cloud\cloud_off.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Cloud\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\comments.imageset\comments.png" />
+    <ImageAsset Include="Assets.xcassets\comments.imageset\comments%402x.png" />
+    <ImageAsset Include="Assets.xcassets\comments.imageset\comments%403x.png" />
+    <ImageAsset Include="Assets.xcassets\comments.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\dashboard.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\dashboard.imageset\dashboard.png" />
+    <ImageAsset Include="Assets.xcassets\dashboard.imageset\dashboard%402x.png" />
+    <ImageAsset Include="Assets.xcassets\dashboard.imageset\dashboard%403x.png" />
+    <ImageAsset Include="Assets.xcassets\deduction.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\deduction.imageset\deduction.png" />
+    <ImageAsset Include="Assets.xcassets\deduction.imageset\deduction%402x.png" />
+    <ImageAsset Include="Assets.xcassets\deduction.imageset\deduction%403x.png" />
+    <ImageAsset Include="Assets.xcassets\download.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\download.imageset\download.png" />
+    <ImageAsset Include="Assets.xcassets\download.imageset\download%402x.png" />
+    <ImageAsset Include="Assets.xcassets\download.imageset\download%403x.png" />
+    <ImageAsset Include="Assets.xcassets\drop_down.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\drop_down.imageset\drop_down.png" />
+    <ImageAsset Include="Assets.xcassets\drop_down.imageset\drop_down%402x.png" />
+    <ImageAsset Include="Assets.xcassets\drop_down.imageset\drop_down%403x.png" />
+    <ImageAsset Include="Assets.xcassets\earning.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\earning.imageset\earning.png" />
+    <ImageAsset Include="Assets.xcassets\earning.imageset\earning%402x.png" />
+    <ImageAsset Include="Assets.xcassets\earning.imageset\earning%403x.png" />
+    <ImageAsset Include="Assets.xcassets\edit.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\edit.imageset\edit.png" />
+    <ImageAsset Include="Assets.xcassets\edit.imageset\edit%402x.png" />
+    <ImageAsset Include="Assets.xcassets\edit.imageset\edit%403x.png" />
+    <ImageAsset Include="Assets.xcassets\email.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\email.imageset\email.png" />
+    <ImageAsset Include="Assets.xcassets\email.imageset\email%402x.png" />
+    <ImageAsset Include="Assets.xcassets\email.imageset\email%403x.png" />
+    <ImageAsset Include="Assets.xcassets\error.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\error.imageset\error.png" />
+    <ImageAsset Include="Assets.xcassets\error.imageset\error%402x.png" />
+    <ImageAsset Include="Assets.xcassets\error.imageset\error%403x.png" />
+    <ImageAsset Include="Assets.xcassets\escalate.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\escalate.imageset\escalate.png" />
+    <ImageAsset Include="Assets.xcassets\escalate.imageset\escalate%402x.png" />
+    <ImageAsset Include="Assets.xcassets\escalate.imageset\escalate%403x.png" />
+    <ImageAsset Include="Assets.xcassets\file.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\file.imageset\file.png" />
+    <ImageAsset Include="Assets.xcassets\file.imageset\file%402x.png" />
+    <ImageAsset Include="Assets.xcassets\file.imageset\file%403x.png" />
+    <ImageAsset Include="Assets.xcassets\file_deleted.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\file_deleted.imageset\file_deleted.png" />
+    <ImageAsset Include="Assets.xcassets\file_deleted.imageset\file_deleted%402x.png" />
+    <ImageAsset Include="Assets.xcassets\file_deleted.imageset\file_deleted%403x.png" />
+    <ImageAsset Include="Assets.xcassets\file_download.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\file_download.imageset\file_download.png" />
+    <ImageAsset Include="Assets.xcassets\file_download.imageset\file_download%402x.png" />
+    <ImageAsset Include="Assets.xcassets\file_download.imageset\file_download%403x.png" />
+    <ImageAsset Include="Assets.xcassets\file_new.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\file_new.imageset\file_new.png" />
+    <ImageAsset Include="Assets.xcassets\file_new.imageset\file_new%402x.png" />
+    <ImageAsset Include="Assets.xcassets\file_new.imageset\file_new%403x.png" />
+    <ImageAsset Include="Assets.xcassets\file_updated.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\file_updated.imageset\file_updated.png" />
+    <ImageAsset Include="Assets.xcassets\file_updated.imageset\file_updated%402x.png" />
+    <ImageAsset Include="Assets.xcassets\file_updated.imageset\file_updated%403x.png" />
+    <ImageAsset Include="Assets.xcassets\file_upload.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\file_upload.imageset\file_upload.png" />
+    <ImageAsset Include="Assets.xcassets\file_upload.imageset\file_upload%402x.png" />
+    <ImageAsset Include="Assets.xcassets\file_upload.imageset\file_upload%403x.png" />
+    <ImageAsset Include="Assets.xcassets\fingerprint.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\fingerprint.imageset\fingerprint.png" />
+    <ImageAsset Include="Assets.xcassets\fingerprint.imageset\fingerprint%402x.png" />
+    <ImageAsset Include="Assets.xcassets\fingerprint.imageset\fingerprint%403x.png" />
+    <ImageAsset Include="Assets.xcassets\home_button.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\home_button.imageset\home_button.png" />
+    <ImageAsset Include="Assets.xcassets\home_button.imageset\home_button%402x.png" />
+    <ImageAsset Include="Assets.xcassets\home_button.imageset\home_button%403x.png" />
+    <ImageAsset Include="Assets.xcassets\key.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\key.imageset\key.png" />
+    <ImageAsset Include="Assets.xcassets\key.imageset\key%402x.png" />
+    <ImageAsset Include="Assets.xcassets\key.imageset\key%403x.png" />
+    <ImageAsset Include="Assets.xcassets\list_of_values.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\list_of_values.imageset\list_of_values.png" />
+    <ImageAsset Include="Assets.xcassets\list_of_values.imageset\list_of_values%402x.png" />
+    <ImageAsset Include="Assets.xcassets\list_of_values.imageset\list_of_values%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Login\password.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Login\password.imageset\password.png" />
+    <ImageAsset Include="Assets.xcassets\Login\password.imageset\password%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Login\password.imageset\password%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Login\username.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Login\username.imageset\username.png" />
+    <ImageAsset Include="Assets.xcassets\Login\username.imageset\username%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Login\username.imageset\username%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Login\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\logo_ar.imageset\Bitaqati-AR%28Path%29.pdf" />
+    <ImageAsset Include="Assets.xcassets\logo_ar.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\logo_en.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\logo_en.imageset\logo_en_2.pdf" />
+    <ImageAsset Include="Assets.xcassets\mobile.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\mobile.imageset\mobile.png" />
+    <ImageAsset Include="Assets.xcassets\mobile.imageset\mobile%402x.png" />
+    <ImageAsset Include="Assets.xcassets\mobile.imageset\mobile%403x.png" />
+    <ImageAsset Include="Assets.xcassets\office.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\office.imageset\office.png" />
+    <ImageAsset Include="Assets.xcassets\office.imageset\office%402x.png" />
+    <ImageAsset Include="Assets.xcassets\office.imageset\office%403x.png" />
+    <ImageAsset Include="Assets.xcassets\overtime.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\overtime.imageset\overtime.png" />
+    <ImageAsset Include="Assets.xcassets\overtime.imageset\overtime%402x.png" />
+    <ImageAsset Include="Assets.xcassets\overtime.imageset\overtime%403x.png" />
+    <ImageAsset Include="Assets.xcassets\phone.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\phone.imageset\phone.png" />
+    <ImageAsset Include="Assets.xcassets\phone.imageset\phone%402x.png" />
+    <ImageAsset Include="Assets.xcassets\phone.imageset\phone%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Profile\basic_information.imageset\basic_information.png" />
+    <ImageAsset Include="Assets.xcassets\Profile\basic_information.imageset\basic_information%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Profile\basic_information.imageset\basic_information%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Profile\basic_information.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Profile\contact_information.imageset\contact_information.png" />
+    <ImageAsset Include="Assets.xcassets\Profile\contact_information.imageset\contact_information%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Profile\contact_information.imageset\contact_information%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Profile\contact_information.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Profile\employment_information.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Profile\employment_information.imageset\employment_information.png" />
+    <ImageAsset Include="Assets.xcassets\Profile\employment_information.imageset\employment_information%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Profile\employment_information.imageset\employment_information%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Profile\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\qr.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\qr.imageset\qr.png" />
+    <ImageAsset Include="Assets.xcassets\qr.imageset\qr%402x.png" />
+    <ImageAsset Include="Assets.xcassets\qr.imageset\qr%403x.png" />
+    <ImageAsset Include="Assets.xcassets\radio_off.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\radio_off.imageset\radio_off.png" />
+    <ImageAsset Include="Assets.xcassets\radio_off.imageset\radio_off%402x.png" />
+    <ImageAsset Include="Assets.xcassets\radio_off.imageset\radio_off%403x.png" />
+    <ImageAsset Include="Assets.xcassets\radio_on.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\radio_on.imageset\radio_on.png" />
+    <ImageAsset Include="Assets.xcassets\radio_on.imageset\radio_on%402x.png" />
+    <ImageAsset Include="Assets.xcassets\radio_on.imageset\radio_on%403x.png" />
+    <ImageAsset Include="Assets.xcassets\refresh.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\refresh.imageset\refresh.png" />
+    <ImageAsset Include="Assets.xcassets\refresh.imageset\refresh%402x.png" />
+    <ImageAsset Include="Assets.xcassets\refresh.imageset\refresh%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Right-Bottom.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Right-Bottom.imageset\Right-Bottom.pdf" />
+    <ImageAsset Include="Assets.xcassets\save.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\save.imageset\save.png" />
+    <ImageAsset Include="Assets.xcassets\save.imageset\save%402x.png" />
+    <ImageAsset Include="Assets.xcassets\save.imageset\save%403x.png" />
+    <ImageAsset Include="Assets.xcassets\search.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\search.imageset\search.png" />
+    <ImageAsset Include="Assets.xcassets\search.imageset\search%402x.png" />
+    <ImageAsset Include="Assets.xcassets\search.imageset\search%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\address_request.imageset\address_request.png" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\address_request.imageset\address_request%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\address_request.imageset\address_request%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\address_request.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\basic_information_request.imageset\basic_information_request.png" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\basic_information_request.imageset\basic_information_request%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\basic_information_request.imageset\basic_information_request%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\basic_information_request.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\business_trips.imageset\business_trips.png" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\business_trips.imageset\business_trips%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\business_trips.imageset\business_trips%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\business_trips.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\employee_certificates.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\employee_certificates.imageset\employee_certificates.png" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\employee_certificates.imageset\employee_certificates%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\employee_certificates.imageset\employee_certificates%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\employee_picture.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\employee_picture.imageset\employee_picture.png" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\employee_picture.imageset\employee_picture%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\employee_picture.imageset\employee_picture%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\personal_information_request.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\personal_information_request.imageset\personal_information_request.png" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\personal_information_request.imageset\personal_information_request%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\personal_information_request.imageset\personal_information_request%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\phone_request.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\phone_request.imageset\phone_request.png" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\phone_request.imageset\phone_request%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\phone_request.imageset\phone_request%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\qualification_request.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\qualification_request.imageset\qualification_request.png" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\qualification_request.imageset\qualification_request%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\qualification_request.imageset\qualification_request%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Self-Service\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Settings\arabic_language.imageset\arabic_language.png" />
+    <ImageAsset Include="Assets.xcassets\Settings\arabic_language.imageset\arabic_language%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Settings\arabic_language.imageset\arabic_language%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Settings\arabic_language.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Settings\check.imageset\check.png" />
+    <ImageAsset Include="Assets.xcassets\Settings\check.imageset\check%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Settings\check.imageset\check%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Settings\check.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Settings\english_language.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Settings\english_language.imageset\english_language.png" />
+    <ImageAsset Include="Assets.xcassets\Settings\english_language.imageset\english_language%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Settings\english_language.imageset\english_language%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Settings\language.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Settings\language.imageset\language.png" />
+    <ImageAsset Include="Assets.xcassets\Settings\language.imageset\language%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Settings\language.imageset\language%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Settings\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\settings_icon.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\settings_icon.imageset\settings_icon.png" />
+    <ImageAsset Include="Assets.xcassets\settings_icon.imageset\settings_icon%402x.png" />
+    <ImageAsset Include="Assets.xcassets\settings_icon.imageset\settings_icon%403x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\absence_history.imageset\absence_history.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\absence_history.imageset\absence_history%402x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\absence_history.imageset\absence_history%403x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\absence_history.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\appraisal_history.imageset\appraisal_history.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\appraisal_history.imageset\appraisal_history%402x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\appraisal_history.imageset\appraisal_history%403x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\appraisal_history.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\basic_salary_history.imageset\basic_salary_history.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\basic_salary_history.imageset\basic_salary_history%402x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\basic_salary_history.imageset\basic_salary_history%403x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\basic_salary_history.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\concurrentoutput.imageset\concurrentoutput.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\concurrentoutput.imageset\concurrentoutput%402x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\concurrentoutput.imageset\concurrentoutput%403x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\concurrentoutput.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\help.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\help.imageset\help.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\help.imageset\help%402x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\help.imageset\help%403x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\logout.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\logout.imageset\logout.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\logout.imageset\logout%402x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\logout.imageset\logout%403x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\my_information.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\my_information.imageset\my_information.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\my_information.imageset\my_information%402x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\my_information.imageset\my_information%403x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\my_services.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\my_services.imageset\my_services.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\my_services.imageset\my_services%402x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\my_services.imageset\my_services%403x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\pay_slip.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\pay_slip.imageset\pay_slip.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\pay_slip.imageset\pay_slip%402x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\pay_slip.imageset\pay_slip%403x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\pay_slip_old.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\pay_slip_old.imageset\pay_slip.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\pay_slip_old.imageset\pay_slip%402x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\pay_slip_old.imageset\pay_slip%403x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\pending_requests.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\pending_requests.imageset\pending_requests.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\pending_requests.imageset\pending_requests%402x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\pending_requests.imageset\pending_requests%403x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\settings.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\settings.imageset\settings.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\settings.imageset\settings%402x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\settings.imageset\settings%403x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\subordinates.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\subordinates.imageset\subordinates.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\subordinates.imageset\subordinates%402x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\subordinates.imageset\subordinates%403x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\training_history.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\training_history.imageset\training_history.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\training_history.imageset\training_history%402x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\training_history.imageset\training_history%403x.png" />
+    <ImageAsset Include="Assets.xcassets\SideMenu\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\tip.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\tip.imageset\tip.png" />
+    <ImageAsset Include="Assets.xcassets\tip.imageset\tip%402x.png" />
+    <ImageAsset Include="Assets.xcassets\tip.imageset\tip%403x.png" />
+    <ImageAsset Include="Assets.xcassets\toggle_down.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\toggle_down.imageset\toggle_down.png" />
+    <ImageAsset Include="Assets.xcassets\toggle_down.imageset\toggle_down%402x.png" />
+    <ImageAsset Include="Assets.xcassets\toggle_down.imageset\toggle_down%403x.png" />
+    <ImageAsset Include="Assets.xcassets\toggle_up.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\toggle_up.imageset\toggle_up.png" />
+    <ImageAsset Include="Assets.xcassets\toggle_up.imageset\toggle_up%402x.png" />
+    <ImageAsset Include="Assets.xcassets\toggle_up.imageset\toggle_up%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Top-Center.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Top-Center.imageset\Top-Center.pdf" />
+    <ImageAsset Include="Assets.xcassets\triangle.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\triangle.imageset\traingle.png" />
+    <ImageAsset Include="Assets.xcassets\triangle.imageset\traingle%402x.png" />
+    <ImageAsset Include="Assets.xcassets\triangle.imageset\traingle%403x.png" />
+    <ImageAsset Include="Assets.xcassets\triangle_ar.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\triangle_ar.imageset\traingle_ar.png" />
+    <ImageAsset Include="Assets.xcassets\triangle_ar.imageset\traingle_ar%402x.png" />
+    <ImageAsset Include="Assets.xcassets\triangle_ar.imageset\traingle_ar%403x.png" />
+    <ImageAsset Include="Assets.xcassets\vacant1.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\vacant1.imageset\vacant1.png" />
+    <ImageAsset Include="Assets.xcassets\vacant1.imageset\vacant1%402x.png" />
+    <ImageAsset Include="Assets.xcassets\vacant1.imageset\vacant1%403x.png" />
+    <ImageAsset Include="Assets.xcassets\vacations.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\vacations.imageset\vacations.png" />
+    <ImageAsset Include="Assets.xcassets\vacations.imageset\vacations%402x.png" />
+    <ImageAsset Include="Assets.xcassets\vacations.imageset\vacations%403x.png" />
+    <ImageAsset Include="Assets.xcassets\work_list.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\work_list.imageset\work_list.png" />
+    <ImageAsset Include="Assets.xcassets\work_list.imageset\work_list%402x.png" />
+    <ImageAsset Include="Assets.xcassets\work_list.imageset\work_list%403x.png" />
+    <ImageAsset Include="Assets.xcassets\zone_logo.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\zone_logo.imageset\zone_logo.png" />
+    <ImageAsset Include="Assets.xcassets\zone_logo.imageset\zone_logo%402x.png" />
+    <ImageAsset Include="Assets.xcassets\zone_logo.imageset\zone_logo%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-76%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-83.5%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\IconSmall.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\IconSmall%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\IconSmall%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\IconSmall-20.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\IconSmall-20%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\IconSmall-20%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\IconSmall-20-iPad%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\IconSmall-40.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\IconSmall-40%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\IconSmall-40%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\IconSmall-40-iPad%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\IconSmall-iPad%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="LaunchScreen.storyboard" />
+    <InterfaceDefinition Include="Main.storyboard" />
+    <InterfaceDefinition Include="ACProgressView.xib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="ViewController.cs" />
+    <Compile Include="ViewController.designer.cs">
+      <DependentUpon>ViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadingIndicator.cs" />
+    <Compile Include="ACProgressView.cs" />
+    <Compile Include="ACProgressView.designer.cs">
+      <DependentUpon>ACProgressView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginViewController.cs" />
+    <Compile Include="LoginViewController.designer.cs">
+      <DependentUpon>LoginViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MessageHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+</Project>
