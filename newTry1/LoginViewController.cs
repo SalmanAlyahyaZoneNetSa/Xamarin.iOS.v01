@@ -6,6 +6,8 @@ using Foundation;
 using UIKit;
 using System.Threading.Tasks;
 using FloatLabeledEntry;
+using CoreGraphics;
+using CoreAnimation;
 
 namespace Bitaqati.iOS
 {
@@ -30,15 +32,134 @@ namespace Bitaqati.iOS
 
         //}
 
+        //private const float FieldHeight = 44.0f;
+        //private const float FieldHMargin = 10.0f;
+        private const float FieldFontSize = 16.0f;
+        private const float FieldFloatingLabelFontSize = 11.0f;
+        UIColor activeColor;
+
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
             // Perform any additional setup after loading the view, typically from a nib.
             fingerPrintView.Hidden = true;
+            userNameTF.Hidden = true;
+            passwordTF.Hidden = true;
             loadTheme();
+
+           
+            int hexColor = unchecked((int)0xFFDB642C);
+            activeColor = UIColor.Clear.FromHex(hexColor);
+            //   float topOffset = (float)(UIApplication.SharedApplication.StatusBarFrame.Size.Height + NavigationController.NavigationBar.Frame.Size.Height);
+            UIColor floatingLabelColor = UIColor.Gray, floatingLabelActiveColor = activeColor;
+
+            var userNameField = new FloatLabeledTextField(new CGRect(0, 8,335, 50))
+            {
+                Placeholder = "User Name",
+                Font = UIFont.SystemFontOfSize(FieldFontSize),
+                ClearButtonMode = UITextFieldViewMode.WhileEditing,
+                FloatingLabelFont = UIFont.BoldSystemFontOfSize(FieldFloatingLabelFontSize),
+                FloatingLabelTextColor = floatingLabelColor,
+                FloatingLabelActiveTextColor = floatingLabelActiveColor
+            };
+
+            InputContainerView.AddSubview(userNameField);
+
+            var passwordField = new FloatLabeledTextField(new CGRect(0, 66, 335, 50))
+            {
+                Placeholder = "Password",
+                Font = UIFont.SystemFontOfSize(FieldFontSize),
+                ClearButtonMode = UITextFieldViewMode.WhileEditing,
+                FloatingLabelFont = UIFont.BoldSystemFontOfSize(FieldFloatingLabelFontSize),
+                FloatingLabelTextColor = floatingLabelColor,
+                FloatingLabelActiveTextColor = floatingLabelActiveColor
+            };
+            InputContainerView.AddSubview(passwordField);
+
+            userNameField.ClearButtonMode = UITextFieldViewMode.Never;
+            userNameField.AutocorrectionType = UITextAutocorrectionType.No;
+            userNameField.AutocapitalizationType = UITextAutocapitalizationType.None;
+            //userNameField.ReturnKeyType = UIReturnKeyType.Continue;
+            //userNameField.AddConstraint(NSLayoutConstraint );
+            userNameField.LeftViewMode = UITextFieldViewMode.Always;
+            userNameField.LeftView = new UIImageView(UIImage.FromBundle("cloud"));;
+                
+            passwordField.ClearButtonMode = UITextFieldViewMode.Never;
+            passwordField.SecureTextEntry = true;
+            passwordField.AutocorrectionType = UITextAutocorrectionType.No;
+            passwordField.AutocapitalizationType = UITextAutocapitalizationType.None;
+
+            var border = new CALayer();
+            nfloat width = 2;
+            border.BorderColor = floatingLabelColor.CGColor;
+            border.Frame = new CoreGraphics.CGRect(0, userNameField.Frame.Size.Height - width, userNameField.Frame.Size.Width, userNameField.Frame.Size.Height);
+            border.BorderWidth = width;
+            userNameField.Layer.AddSublayer(border);
+            userNameField.Layer.MasksToBounds = true;
+       
+            userNameField.EditingDidBegin += (sender, e) =>
+            {
+                Console.WriteLine("NEWuserNameField touched");
+                border.BorderColor = activeColor.CGColor;
+            };
+            userNameField.EditingDidEnd += (sender, e) =>
+            {
+                Console.WriteLine("NEWuserNameField NOT touched");
+                border.BorderColor = floatingLabelColor.CGColor;
+            };
+
+            var borderP = new CALayer();
+         //   nfloat width = 2;
+            borderP.BorderColor = floatingLabelColor.CGColor;
+            borderP.Frame = new CoreGraphics.CGRect(0, passwordField.Frame.Size.Height - width, passwordField.Frame.Size.Width, passwordField.Frame.Size.Height);
+            borderP.BorderWidth = width;
+            passwordField.Layer.AddSublayer(borderP);
+            passwordField.Layer.MasksToBounds = true;
+
+            passwordField.EditingDidBegin += (sender, e) =>
+            {
+                Console.WriteLine("passwordField touched");
+                borderP.BorderColor = activeColor.CGColor;
+            };
+            passwordField.EditingDidEnd += (sender, e) =>
+            {
+                Console.WriteLine("passwordField NOTouched");
+                borderP.BorderColor = floatingLabelColor.CGColor;
+            };
 
         }
 
+        public void addBottomLine()
+        {
+            //if bottomLineView?.superview != nil {
+            //    return
+            //}
+            //Bottom Line UIView Configuration.
+            var bottomLineView = new UIView();
+            bottomLineView.BackgroundColor = activeColor;
+            bottomLineView.TranslatesAutoresizingMaskIntoConstraints = false;
+            bottomLineView.Frame = new CGRect(0, 60, 335, 2);
+            InputView.AddSubview(bottomLineView);
+
+
+        //let leadingConstraint = NSLayoutConstraint.init(item: bottomLineView!, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0)
+        //let trailingConstraint = NSLayoutConstraint.init(item: bottomLineView!, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: 0)
+        //let bottomConstraint = NSLayoutConstraint.init(item: bottomLineView!, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0)
+        //bottomLineViewHeight = NSLayoutConstraint.init(item: bottomLineView!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 1)
+
+
+        //self.addConstraints([leadingConstraint, trailingConstraint, bottomConstraint])
+        //bottomLineView?.addConstraint(bottomLineViewHeight!)
+
+
+        //self.addTarget(self, action: #selector(self.textfieldEditingChanged), for: .editingChanged)
+     }
+
+        //public override void textFieldDidBeginEditing:(UITextField*) textField
+        //{ //Keyboard becomes visible
+
+        //    //perform actions.
+        //}
         private void loadTheme()
         {
             View.BackgroundColor = UIColor.White;
@@ -46,8 +167,8 @@ namespace Bitaqati.iOS
             fingerPrintImage.TintColor = UIColor.Gray;
 
             //#FFDB642C
-            int hexColor = unchecked((int)0xFFDB642C); 
-            signINButton.BackgroundColor = UIColor.Clear.FromHex(hexColor);
+            int hexColor = unchecked((int)0xFFDB642C);
+            signINButton.BackgroundColor = activeColor;
             signINButton.SetTitleColor(UIColor.White, UIControlState.Normal);
 
             clientLogoImage.Image = UIImage.LoadFromData(GetClientLogo("http://212.118.119.107:2020/BitaqatiWebAPI/Echo/ClientLogo"));
@@ -63,6 +184,8 @@ namespace Bitaqati.iOS
             //    $0?.textAlignment = helper.currentLanguage() == .arabic?.right : .left
             //})
             //}
+
+
         }
 
 

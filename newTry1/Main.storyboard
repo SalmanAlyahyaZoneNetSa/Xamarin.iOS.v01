@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sd1-Ef-apL">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
@@ -276,12 +276,12 @@
                                 <rect key="frame" x="20" y="311" width="335" height="200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fingerprint Authentication" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AzF-4P-xg4">
-                                        <rect key="frame" x="78.5" y="8" width="178.5" height="47"/>
+                                        <rect key="frame" x="81" y="8" width="173.5" height="47.5"/>
                                         <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="15"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="260" verticalCompressionResistancePriority="760" text="Please place your finger on the fingerprint sensor in order to login to Bitaqati" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpO-X3-I8A">
-                                        <rect key="frame" x="8" y="75" width="319" height="33.5"/>
+                                        <rect key="frame" x="8" y="75.5" width="319" height="33"/>
                                         <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="14"/>
                                         <color key="textColor" red="0.42745098040000001" green="0.43137254899999999" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -328,15 +328,15 @@
                     </view>
                     <connections>
                         <outlet property="InputContainerView" destination="c8L-Ty-7F0" id="name-outlet-c8L-Ty-7F0"/>
-                        <outlet property="userNameTF" destination="Fbg-GX-5YM" id="name-outlet-Fbg-GX-5YM"/>
-                        <outlet property="signINButton" destination="u2P-wn-cMn" id="name-outlet-u2P-wn-cMn"/>
-                        <outlet property="passwordTF" destination="bX6-6Z-c2Q" id="name-outlet-bX6-6Z-c2Q"/>
                         <outlet property="clientLogoImage" destination="zjw-OU-DRp" id="name-outlet-zjw-OU-DRp"/>
-                        <outlet property="titleLabel" destination="9GO-4p-ZXr" id="name-outlet-9GO-4p-ZXr"/>
-                        <outlet property="fingerPrintView" destination="XQk-N1-CQh" id="name-outlet-XQk-N1-CQh"/>
-                        <outlet property="fingerPrintLabelTitle" destination="AzF-4P-xg4" id="name-outlet-AzF-4P-xg4"/>
-                        <outlet property="fingerPrintLabelInstruction" destination="tpO-X3-I8A" id="name-outlet-tpO-X3-I8A"/>
                         <outlet property="fingerPrintImage" destination="tgf-HZ-MPc" id="name-outlet-tgf-HZ-MPc"/>
+                        <outlet property="fingerPrintLabelInstruction" destination="tpO-X3-I8A" id="name-outlet-tpO-X3-I8A"/>
+                        <outlet property="fingerPrintLabelTitle" destination="AzF-4P-xg4" id="name-outlet-AzF-4P-xg4"/>
+                        <outlet property="fingerPrintView" destination="XQk-N1-CQh" id="name-outlet-XQk-N1-CQh"/>
+                        <outlet property="passwordTF" destination="bX6-6Z-c2Q" id="name-outlet-bX6-6Z-c2Q"/>
+                        <outlet property="signINButton" destination="u2P-wn-cMn" id="name-outlet-u2P-wn-cMn"/>
+                        <outlet property="titleLabel" destination="9GO-4p-ZXr" id="name-outlet-9GO-4p-ZXr"/>
+                        <outlet property="userNameTF" destination="Fbg-GX-5YM" id="name-outlet-Fbg-GX-5YM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fB1-o9-5m1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -345,109 +345,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Right-Bottom" width="580" height="401"/>
+        <image name="Top-Center" width="1000" height="1012"/>
         <image name="fingerprint" width="54" height="60"/>
         <image name="logo_en" width="150" height="150"/>
         <image name="qr" width="28" height="26"/>
         <image name="settings_icon" width="18" height="18"/>
         <image name="zone_logo" width="345" height="162"/>
-        <image name="absence_arrow" width="229" height="23"/>
-        <image name="Abstract-Background" width="298" height="201"/>
-        <image name="accruals" width="26" height="26"/>
-        <image name="accept_action" width="18" height="14"/>
-        <image name="correction_action" width="38" height="34"/>
-        <image name="delete_action" width="14" height="18"/>
-        <image name="for_your_action" width="34" height="33"/>
-        <image name="more_info_action" width="34" height="34"/>
-        <image name="ok_action" width="38" height="34"/>
-        <image name="provide_info_action" width="20" height="20"/>
-        <image name="reassign_action" width="20" height="19"/>
-        <image name="reject_action" width="14" height="14"/>
-        <image name="update_action" width="18" height="18"/>
-        <image name="action" width="22" height="19"/>
-        <image name="action_rotated" width="22" height="19"/>
-        <image name="add" width="24" height="24"/>
-        <image name="back_arrow(ar)" width="20" height="20"/>
-        <image name="back_arrow" width="20" height="20"/>
-        <image name="down" width="10" height="5"/>
-        <image name="navigate_back" width="8" height="12"/>
-        <image name="navigate_next" width="8" height="12"/>
-        <image name="toggle_down" width="16" height="10"/>
-        <image name="toggle_up" width="16" height="10"/>
-        <image name="up" width="10" height="5"/>
-        <image name="attachment" width="15" height="28"/>
-        <image name="avatar" width="200" height="200"/>
-        <image name="browsefiles" width="26" height="26"/>
-        <image name="calendar" width="26" height="26"/>
-        <image name="cancel" width="14" height="14"/>
-        <image name="clock" width="40" height="40"/>
-        <image name="cloud" width="30" height="20"/>
-        <image name="cloud_done" width="30" height="20"/>
-        <image name="cloud_download" width="30" height="20"/>
-        <image name="cloud_off" width="30" height="23"/>
-        <image name="comments" width="34" height="34"/>
-        <image name="dashboard" width="20" height="20"/>
-        <image name="deduction" width="42" height="42"/>
-        <image name="download" width="20" height="26"/>
-        <image name="drop_down" width="34" height="34"/>
-        <image name="earning" width="42" height="42"/>
-        <image name="edit" width="18" height="18"/>
-        <image name="email" width="34" height="28"/>
-        <image name="error" width="34" height="34"/>
-        <image name="escalate" width="22" height="20"/>
-        <image name="file" width="28" height="36"/>
-        <image name="file_deleted" width="29" height="29"/>
-        <image name="file_download" width="24" height="29"/>
-        <image name="file_new" width="28" height="33"/>
-        <image name="file_updated" width="30" height="30"/>
-        <image name="file_upload" width="24" height="29"/>
-        <image name="home_button" width="24" height="16"/>
-        <image name="key" width="46" height="26"/>
-        <image name="list_of_values" width="34" height="34"/>
-        <image name="password" width="30" height="40"/>
-        <image name="username" width="30" height="30"/>
-        <image name="mobile" width="24" height="38"/>
-        <image name="office" width="34" height="30"/>
-        <image name="overtime" width="34" height="34"/>
-        <image name="phone" width="30" height="30"/>
-        <image name="basic_information" width="42" height="42"/>
-        <image name="contact_information" width="42" height="42"/>
-        <image name="employment_information" width="36" height="36"/>
-        <image name="radio_off" width="20" height="20"/>
-        <image name="radio_on" width="20" height="20"/>
-        <image name="refresh" width="20" height="20"/>
-        <image name="save" width="18" height="18"/>
-        <image name="search" width="18" height="18"/>
-        <image name="address_request" width="30" height="43"/>
-        <image name="basic_information_request" width="20" height="20"/>
-        <image name="business_trips" width="26" height="25"/>
-        <image name="employee_certificates" width="20" height="26"/>
-        <image name="employee_picture" width="24" height="24"/>
-        <image name="personal_information_request" width="30" height="36"/>
-        <image name="phone_request" width="24" height="24"/>
-        <image name="qualification_request" width="28" height="22"/>
-        <image name="arabic_language" width="30" height="30"/>
-        <image name="check" width="23" height="17"/>
-        <image name="english_language" width="30" height="30"/>
-        <image name="language" width="26" height="26"/>
-        <image name="absence_history" width="30" height="34"/>
-        <image name="appraisal_history" width="28" height="16"/>
-        <image name="basic_salary_history" width="29" height="31"/>
-        <image name="concurrentoutput" width="29" height="29"/>
-        <image name="help" width="26" height="26"/>
-        <image name="logout" width="24" height="24"/>
-        <image name="my_information" width="24" height="24"/>
-        <image name="my_services" width="20" height="27"/>
-        <image name="pay_slip" width="30" height="30"/>
-        <image name="pay_slip_old" width="26" height="20"/>
-        <image name="pending_requests" width="28" height="28"/>
-        <image name="settings" width="26" height="26"/>
-        <image name="subordinates" width="28" height="18"/>
-        <image name="training_history" width="29" height="27"/>
-        <image name="tip" width="30" height="43"/>
-        <image name="triangle" width="20" height="20"/>
-        <image name="triangle_ar" width="20" height="20"/>
-        <image name="vacant1" width="100" height="100"/>
-        <image name="vacations" width="34" height="30"/>
-        <image name="work_list" width="28" height="32"/>
     </resources>
 </document>
